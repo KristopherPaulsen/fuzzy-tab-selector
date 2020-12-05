@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.kristopherpaulsen.fuzzy_tab_selector</id>
+    <name>Fuzzy Tab Selector</name>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">kristopherpaulsen.com</vendor>
+
+    <description><![CDATA[
+    Easily and quickly select an open tab through fuzzy searching.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action id="com.kristopherpaulsen.fuzzytabselector.SelectTab"
+                class="com.kristopherpaulsen.fuzzytabselector.SelectTab"
+                text="I'm the searchable text"
+                description="It does the thing!"
+                icon="SdkIcons.Sdk_default_icon"
+        >
+            <override-text place="MainMenu" text="Pop Dialog Action"/>
+            <keyboard-shortcut first-keystroke="control alt A" second-keystroke="C" keymap="$default"/>
+            <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
