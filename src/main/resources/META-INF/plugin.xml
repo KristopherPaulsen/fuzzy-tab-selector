@@ -15,14 +15,17 @@
     <actions>
         <action id="com.kristopherpaulsen.fuzzytabselector.SelectTab"
                 class="com.kristopherpaulsen.fuzzytabselector.SelectTab"
-                text="I'm the searchable text"
+                text="Fuzzy tab selection"
                 description="It does the thing!"
-                icon="SdkIcons.Sdk_default_icon"
         >
-            <override-text place="MainMenu" text="Pop Dialog Action"/>
-            <keyboard-shortcut first-keystroke="control alt A" second-keystroke="C" keymap="$default"/>
-            <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
-            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <add-to-group group-id="SearchEverywhereActions" anchor="first"/>
+        </action>
+
+        <action id="com.kristopherpaulsen.fuzzytabselector.GoToTab"
+                class="com.kristopherpaulsen.fuzzytabselector.GoToTab"
+                text="doTheThing"
+                description="It does the thing!"
+        >
         </action>
     </actions>
 </idea-plugin>
