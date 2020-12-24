@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.kristopherpaulsen.fuzzy_tab_selector</id>
     <name>Fuzzy Tab Selector</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">kristopherpaulsen.com</vendor>
+    <vendor email="kristopherpaulsen@gmail.com" url="https://kristopherpaulsen.com">kristopherpaulsen.com</vendor>
 
     <description><![CDATA[
     Easily and quickly select an open tab through fuzzy searching.
@@ -9,23 +9,15 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-    </extensions>
+    <extensions defaultExtensionNs="com.intellij"/>
 
     <actions>
         <action id="com.kristopherpaulsen.fuzzytabselector.SelectTab"
                 class="com.kristopherpaulsen.fuzzytabselector.SelectTab"
-                text="Fuzzy tab selection"
+                text="FuzzySelectTab"
                 description="It does the thing!"
         >
             <add-to-group group-id="SearchEverywhereActions" anchor="first"/>
-        </action>
-
-        <action id="com.kristopherpaulsen.fuzzytabselector.GoToTab"
-                class="com.kristopherpaulsen.fuzzytabselector.GoToTab"
-                text="doTheThing"
-                description="It does the thing!"
-        >
         </action>
     </actions>
 </idea-plugin>
