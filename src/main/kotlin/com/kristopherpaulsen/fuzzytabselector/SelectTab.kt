@@ -2,10 +2,8 @@ package com.kristopherpaulsen.fuzzytabselector;
 import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
-import com.intellij.openapi.actionSystem.PlatformDataKeys
 
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.project.Project
 
 
 class SelectTab : AnAction() {
@@ -14,13 +12,15 @@ class SelectTab : AnAction() {
         val dataContext = event.dataContext
         val actionGroup = DefaultActionGroup("YES", true)
         val editorManager = FileEditorManagerEx.getInstanceEx(project);
-        val files = editorManager.windows.flatMap { window ->
-            window.files.asList()
-        }
 
-        files!!.forEach { file ->
-            actionGroup.add(MenuItem(file.name, file));
-        }
+        editorManager.windows.forEach { window -> window.files.forEach { file ->
+            actionGroup.add(MenuItem(
+                name = { file.name },
+                icon = file.fileType.icon!!,
+                file = file,
+                window = window,
+            ))
+        }}
 
         JBPopupFactory
             .getInstance()

@@ -8,12 +8,15 @@ import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 import com.intellij.openapi.fileEditor.impl.EditorWindow
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
+import java.util.function.Supplier
+import javax.swing.Icon
 
 class MenuItem(
-    text: String,
+    name: Supplier<String>,
+    icon: Icon,
     private val file: VirtualFile,
     private val window: EditorWindow
-) : AnAction(text) {
+) : AnAction(name, icon) {
     override fun actionPerformed(event: AnActionEvent) {
         val editorManager = FileEditorManagerEx.getInstanceEx(
             CommonDataKeys.PROJECT.getData(event.dataContext)!!
@@ -22,7 +25,7 @@ class MenuItem(
         editorManager.openFileWithProviders(file, true, window)
     }
 
-    private fun getProject(event: AnActionEvent): Project? {
-        return PlatformDataKeys.PROJECT.getData(event.dataContext)
-    }
+//    private fun getProject(event: AnActionEvent): Project? {
+//        return PlatformDataKeys.PROJECT.getData(event.dataContext)
+//    }
 }
